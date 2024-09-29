@@ -1,5 +1,3 @@
-// script.js
-
 function calculateTimeRemaining(targetDate) {
   const now = new Date();
   const timeDifference = targetDate - now;
@@ -28,14 +26,12 @@ function calculateTimeRemaining(targetDate) {
   };
 }
 
-function updateCountdown() {
-  const targetDate = new Date();
-  targetDate.setMonth(5); // June (month is 0-indexed)
-  targetDate.setDate(5);
-  targetDate.setHours(8);
-  targetDate.setMinutes(0);
-  targetDate.setSeconds(0);
+function getTargetDate() {
+  return new Date(2025, 4, 29, 8, 0, 0); // May 29, 2025, 8:00 AM (month is 0-indexed)
+}
 
+function updateCountdown() {
+  const targetDate = getTargetDate();
   const { days, hours, minutes, seconds } = calculateTimeRemaining(targetDate);
 
   document.getElementById("days").textContent = days;
